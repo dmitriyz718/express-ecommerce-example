@@ -36,7 +36,6 @@ router.post('/signin', (req, res) => {
 				req.session.userId = currentUser._id;
 				req.session.username = currentUser.username;
 				req.session.admin = currentUser.isAdmin;
-				console.log(req.session);
 				res.redirect(`/users/${req.session.userId}`);
 			} else {
 				res.send('Wrong password');
@@ -53,7 +52,6 @@ router.get('/:id', (req, res) => {
 		console.log(req.session);
 		res.render('user/show', {
 			user: foundUser,
-			seshId: req.session.userId,
 		});
 	});
 });

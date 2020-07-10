@@ -1,24 +1,8 @@
 <!DOCTYPE html>
-<<<<<<< HEAD
-<html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Document</title>
-	</head>
-	<body>
-		<%- include('../partials/_header') %> <% if(user &&
-		userId){if(userId.toString() === user._id.toString()){ %> <%= user.username
-		%> <%= userId %> <% } else{ %>
-		<h3>Wrong User</h3>
-		<% } } else { %>
-		<h3>You must login</h3>
-		<% } %>
-	</body>
-=======
 <%- include('../partials/_head') %>
 
 <body>
+	<%- include('../partials/_header') %>
 	<% if(user && userId){if(userId.toString() === user._id.toString()){ %> <%=
 		user.username %> <%= userId %> <% } else{ %>
 	<h3>Wrong User</h3>
@@ -27,5 +11,4 @@
 	<% } %>
 </body>
 
->>>>>>> submaster
 </html>

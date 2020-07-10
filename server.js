@@ -50,4 +50,11 @@ app.get('/', (req, res) => {
 
 app.use('/users', usersController);
 
+app.get(`*`, (req, res) => {
+	res.render(`404`, {
+		req: req.url
+	})
+})
+
+
 app.listen(PORT, () => console.log(`Server running on ${PORT}`));

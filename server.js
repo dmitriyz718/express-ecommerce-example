@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 
 const session = require('express-session');
+const methodOverride = require('method-override');
 
 const usersController = require('./controllers/usersController');
 
@@ -11,7 +12,7 @@ app.set('view engine', 'ejs');
 
 app.use(express.static(__dirname + '/public'));
 // Method Override
-// app.use(methodOverride('_method'));
+app.use(methodOverride('_method'));
 
 // Express BodyParser
 app.use(express.urlencoded({ extended: false }));

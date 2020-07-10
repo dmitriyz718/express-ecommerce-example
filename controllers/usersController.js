@@ -65,4 +65,18 @@ router.get('/:id', (req, res) => {
 	});
 });
 
+// Add Admin Rights
+router.put('/:id', (req, res) => {
+	// Finds user by id and updates isAdmin key to equal true
+	db.User.findByIdAndUpdate(
+		req.params.id,
+		{ isAdmin: true },
+		{ new: true },
+		(err, adminUser) => {
+			if (err) console.log(err);
+			res.redirect(`/users/${adminUser._id}`);
+		}
+	);
+});
+
 module.exports = router;

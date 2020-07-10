@@ -20,9 +20,19 @@ router.get('/create', (req, res) => {
 
 // Creates new user (sign up)
 router.post('/', (req, res) => {
-	db.User.create(req.body, (err, createdUser) => {
+	// Checks If User already Exists
+	db.User.findOne({ username: req.body.username }, (err, existingUser) => {
 		if (err) console.log(err);
-		res.redirect('/');
+		if (existingUser) {
+			// If user exists do this
+			res.send('User already exists');
+		} else {
+			// If user does not exist create User
+			db.User.create(req.body, (err, createdUser) => {
+				if (err) console.log(err);
+				res.redirect('/');
+			});
+		}
 	});
 });
 
@@ -63,6 +73,20 @@ router.get('/:id', (req, res) => {
 			user: foundUser,
 		});
 	});
+});
+
+// Add Admin Rights
+router.put('/:id', (req, res) => {
+	// Finds user by id and updates isAdmin key to equal true
+	db.User.findByIdAndUpdate(
+		req.params.id,
+		{ isAdmin: true },
+		{ new: true },
+		(err, adminUser) => {
+			if (err) console.log(err);
+			res.redirect(`/users/${adminUser._id}`);
+		}
+	);
 });
 
 module.exports = router;

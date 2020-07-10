@@ -3,11 +3,18 @@
 
 <body>
 	<%- include('../partials/_header') %>
-	<% if(user && userId){if(userId.toString() === user._id.toString()){ %> <%=
-		user.username %> <%= userId %> <%= admin %><% } else{ %>
-	<h3>Wrong User</h3>
+	<% if(user && userId){if(userId.toString() === user._id.toString() || admin){ %> 
+		<%=user.username %> 
+		<!-- Display Form To Change User To Admin -->
+		<%if (user.isAdmin) {%>
+			Already Admin 
+		<%} else if(admin) {%>
+			Add as admin
+		<%}%>	
+	<% } else{ %>
+		<h3>Wrong User</h3>
 	<% } } else { %>
-	<h3>You must login</h3>
+		<h3>You must login</h3>
 	<% } %>
 </body>
 

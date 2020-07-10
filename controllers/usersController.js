@@ -54,13 +54,11 @@ router.post('/signin', (req, res) => {
 		}
 	});
 });
-
 // Show Individual User
 
 router.get('/:id', (req, res) => {
 	db.User.findById(req.params.id, (err, foundUser) => {
 		if (err) console.log(err);
-		console.log(req.session);
 		res.render('user/show', {
 			user: foundUser,
 		});

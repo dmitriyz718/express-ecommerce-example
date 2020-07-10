@@ -2,6 +2,7 @@
 <%- include('../partials/_head') %>
 
 <body>
+	<%- include('../partials/_header') %>
 	<% if(user && userId){if(userId.toString() === user._id.toString()){ %> <%=
 		user.username %> <%= userId %> <% } else{ %>
 	<h3>Wrong User</h3>

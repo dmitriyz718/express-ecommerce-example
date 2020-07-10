@@ -30,7 +30,13 @@ app.use((req, res, next) => {
 	app.locals.userId = req.session.userId;
 	app.locals.username = req.session.username;
 	app.locals.admin = req.session.admin;
-	console.log(app.locals);
+	next();
+});
+
+// Custom Middleware
+app.use((req, res, next) => {
+	console.log(req);
+	app.locals.title = req.url.replace('/', '| ');
 	next();
 });
 
@@ -40,4 +46,4 @@ app.get('/', (req, res) => {
 
 app.use('/users', usersController);
 
-app.listen(PORT, () => console.log(`Server running on${PORT}`));
+app.listen(PORT, () => console.log(`Server running on ${PORT}`));

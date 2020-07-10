@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<<<<<<< HEAD
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
@@ -14,4 +15,17 @@
 		<h3>You must login</h3>
 		<% } %>
 	</body>
+=======
+<%- include('../partials/_head') %>
+
+<body>
+	<% if(user && userId){if(userId.toString() === user._id.toString()){ %> <%=
+		user.username %> <%= userId %> <% } else{ %>
+	<h3>Wrong User</h3>
+	<% } } else { %>
+	<h3>You must login</h3>
+	<% } %>
+</body>
+
+>>>>>>> submaster
 </html>

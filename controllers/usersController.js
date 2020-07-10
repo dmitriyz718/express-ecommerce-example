@@ -20,9 +20,19 @@ router.get('/create', (req, res) => {
 
 // Creates new user (sign up)
 router.post('/', (req, res) => {
-	db.User.create(req.body, (err, createdUser) => {
+	// Checks If User already Exists
+	db.User.findOne({ username: req.body.username }, (err, existingUser) => {
 		if (err) console.log(err);
-		res.redirect('/');
+		if (existingUser) {
+			// If user exists do this
+			res.send('User already exists');
+		} else {
+			// If user does not exist create User
+			db.User.create(req.body, (err, createdUser) => {
+				if (err) console.log(err);
+				res.redirect('/');
+			});
+		}
 	});
 });
 

@@ -4,7 +4,6 @@
 	padding: 0;
 	box-sizing: border-box;
 	text-decoration: none;
-	color: #f1f1f1;
 }
 
 body {
@@ -24,14 +23,19 @@ body {
 		hsla(0, 0%, 6%, 1) 0%,
 		hsla(0, 0%, 27%, 1) 100%
 	);
-	filter: ;
-	progid: DXImageTransform.Microsoft.gradient(
+	filter: progid: DXImageTransform.Microsoft.gradient(
 		startColorstr= '#101010',
 		endColorstr= '#444444',
 		GradientType=1
 	);
 	min-height: 100vh;
 	-webkit-filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#101010", endColorstr="#444444", GradientType=1 );
+	color: #f1f1f1;
+}
+
+a,
+a:visited {
+	color: #f1f1f1;
 }
 
 nav ul {

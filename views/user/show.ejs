@@ -6,8 +6,9 @@
 		<title>Document</title>
 	</head>
 	<body>
-		<% if(user && userId){if(userId.toString() === user._id.toString()){ %> <%=
-		user.username %> <%= userId %> <% } else{ %>
+		<%- include('../partials/_header') %> <% if(user &&
+		userId){if(userId.toString() === user._id.toString()){ %> <%= user.username
+		%> <%= userId %> <% } else{ %>
 		<h3>Wrong User</h3>
 		<% } } else { %>
 		<h3>You must login</h3>

@@ -41,4 +41,4 @@ app.get('/', (req, res) => {
 
 app.use('/users', usersController);
 
-app.listen(PORT, () => console.log(`Server running on${PORT}`));
+app.listen(PORT, () => console.log(`Server running on ${PORT}`));

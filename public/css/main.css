@@ -1,3 +1,50 @@
+/* Reset */
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	text-decoration: none;
+	color: #f1f1f1;
+}
+
 body {
-    background-color: steelblue;
+	background: hsla(0, 0%, 6%, 1);
+	background: linear-gradient(
+		45deg,
+		hsla(0, 0%, 6%, 1) 0%,
+		hsla(0, 0%, 27%, 1) 100%
+	);
+	background: -moz-linear-gradient(
+		45deg,
+		hsla(0, 0%, 6%, 1) 0%,
+		hsla(0, 0%, 27%, 1) 100%
+	);
+	background: -webkit-linear-gradient(
+		45deg,
+		hsla(0, 0%, 6%, 1) 0%,
+		hsla(0, 0%, 27%, 1) 100%
+	);
+	filter: ;
+	progid: DXImageTransform.Microsoft.gradient(
+		startColorstr= '#101010',
+		endColorstr= '#444444',
+		GradientType=1
+	);
+	min-height: 100vh;
+	-webkit-filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#101010", endColorstr="#444444", GradientType=1 );
+}
+
+nav ul {
+	list-style-type: none;
+	display: flex;
+	margin: 25px 0;
+}
+
+nav ul li {
+	padding: 0 10px;
+}
+
+nav ul li a:hover {
+	color: #a3a3a3;
+	text-decoration: underline;
 }

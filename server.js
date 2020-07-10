@@ -9,8 +9,7 @@ const PORT = process.env.PORT || 4000;
 
 app.set('view engine', 'ejs');
 
-app.use(express.static(`${__dirname}/public`));
-
+app.use(express.static(__dirname + '/public'));
 // Method Override
 // app.use(methodOverride('_method'));
 

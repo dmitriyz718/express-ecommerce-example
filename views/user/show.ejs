@@ -4,7 +4,7 @@
 <body>
 	<%- include('../partials/_header') %>
 	<% if(user && userId){if(userId.toString() === user._id.toString()){ %> <%=
-		user.username %> <%= userId %> <% } else{ %>
+		user.username %> <%= userId %> <%= admin %><% } else{ %>
 	<h3>Wrong User</h3>
 	<% } } else { %>
 	<h3>You must login</h3>

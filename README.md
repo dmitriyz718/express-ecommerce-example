@@ -21,12 +21,13 @@ This simple Ecommerce CMS, allows users to view a page of products. Users with A
 
 ## Wireframes
 
-![main-screen](https://drive.google.com/file/d/1RKrAo9E7oly7o3culq11Avzd4oBudymO/view?usp=sharing)
-![main-product](https://drive.google.com/file/d/1cXLcnOEjs5BHmQZffZmMAd7zH_LckOdP/view?usp=sharing)
+![main-screen](./public/assets/main-page.png)
+
+![single](./public/assets/single-prod.png)
 
 ### ERD
 
-![ERD](https://drive.google.com/file/d/1CPPX2-5lqMgSwVvCjf4QT4J3M1toBQGT/view?usp=sharing)
+![ERD](./public/assets/erd.png)
 
 ## Technologies Used
 

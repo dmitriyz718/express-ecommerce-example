@@ -1,26 +1,24 @@
-const express = require('express');
-const app = express();
+const express = require('express'); // require express
+const app = express(); // set app as express
+const session = require('express-session'); // require express session for middleware
+const methodOverride = require('method-override'); // require method override for full CRUD functionality
+const productsController = require(`./controllers/productsController`); // require products controller for product routes
+const usersController = require('./controllers/usersController'); // user controller for user routes
+const PORT = process.env.PORT || 4000; // set port
+const logger = require(`./middleware/logger`);
+app.set('view engine', 'ejs'); // set a view engine, ejs to display and render
 
-const session = require('express-session');
-const methodOverride = require('method-override');
-
-const usersController = require('./controllers/usersController');
-
-const PORT = process.env.PORT || 4000;
-
-app.set('view engine', 'ejs');
-
-app.use(express.static(__dirname + '/public'));
+app.use(express.static(__dirname + '/public')); // for css and images
 // Method Override
-app.use(methodOverride('_method'));
+app.use(methodOverride('_method')); // set our method override
 
 // Express BodyParser
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: false })); // body parser for req feedback
 
 // Express Session
 app.use(
 	session({
-		secret: 'keyboard cat',
+		secret: 'keyboard cat', // i dont know some kind of cat? meow
 		resave: false,
 		saveUninitialized: true,
 	})
@@ -41,13 +39,13 @@ app.use((req, res, next) => {
 	app.locals.title = req.url.replace('/', '| '); // Sets title to url replacing / with |
 	next();
 });
-
+app.use((req, res, next) => logger(req, res, next));
 // Routes
 // Index Route
 app.get('/', (req, res) => {
 	res.render('index');
 });
-
+app.use(`/products`, productsController);
 app.use('/users', usersController);
 
 app.get(`*`, (req, res) => {

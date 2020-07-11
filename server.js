@@ -36,23 +36,22 @@ app.use(express.urlencoded({ extended: false })); // body parser for req feedbac
 // Custom Middleware
 // Sets Title Dynamically
 app.use((req, res, next) => {
-	app.locals.title = req.url.replace('/', '| '); // Sets title to url replacing / with |
-	next();
+  app.locals.title = req.url.replace('/', '| '); // Sets title to url replacing / with |
+  next();
 });
 app.use((req, res, next) => logger(req, res, next));
 // Routes
 // Index Route
 app.get('/', (req, res) => {
-	res.render('index');
+  res.render('index');
 });
 app.use(`/products`, productsController);
 app.use('/users', usersController);
 
 app.get(`*`, (req, res) => {
-	res.render(`404`, {
-		req: req.url
-	})
-})
-
+  res.render(`404`, {
+    req: req.url,
+  });
+});
 
 app.listen(PORT, () => console.log(`Server running on ${PORT}`));

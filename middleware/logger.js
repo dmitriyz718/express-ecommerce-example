@@ -1,6 +1,6 @@
 // Sets EJS Variables - Can call these from any ejs view using the varibale name eq, app.locals.title => title on ejs view
 // Express Session
-app.use(
+const expSession = (
     session({
         secret: 'keyboard cat', // i dont know some kind of cat? meow
         resave: false,
@@ -23,4 +23,4 @@ const urlReplacer = ((req, res, next) => {
     next();
 });
 
-module.exports = { logger, urlReplacer };
+module.exports = { logger, urlReplacer, expSession };

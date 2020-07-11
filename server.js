@@ -16,22 +16,22 @@ app.use(methodOverride('_method')); // set our method override
 app.use(express.urlencoded({ extended: false })); // body parser for req feedback
 
 // Express Session
-app.use(
+/* app.use(
 	session({
 		secret: 'keyboard cat', // i dont know some kind of cat? meow
 		resave: false,
 		saveUninitialized: true,
 	})
-);
+); */
 
 // Sets EJS Variables - Can call these from any ejs view using the varibale name eq, app.locals.title => title on ejs view
-app.use((req, res, next) => {
+/* app.use((req, res, next) => {
 	// Logged In User Info available anywhere
 	app.locals.userId = req.session.userId;
 	app.locals.username = req.session.username;
 	app.locals.admin = req.session.admin;
 	next();
-});
+}); */
 
 // Custom Middleware
 // Sets Title Dynamically

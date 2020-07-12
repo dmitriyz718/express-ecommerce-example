@@ -35,10 +35,17 @@ app.use(express.urlencoded({ extended: false })); // body parser for req feedbac
 
 // Custom Middleware
 // Sets Title Dynamically
+<<<<<<< HEAD
 app.use((req, res, next) => {
   app.locals.title = req.url.replace('/', '| '); // Sets title to url replacing / with |
   next();
 });
+=======
+/* app.use((req, res, next) => {
+	app.locals.title = req.url.replace('/', '| '); // Sets title to url replacing / with |
+	next();
+}); */
+>>>>>>> 894b9224c3bb1734e75fb2ec060ca488946ce848
 app.use((req, res, next) => logger(req, res, next));
 // Routes
 // Index Route

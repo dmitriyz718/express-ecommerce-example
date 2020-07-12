@@ -5,8 +5,6 @@ const methodOverride = require('method-override'); // require method override fo
 const productsController = require(`./controllers/productsController`); // require products controller for product routes
 const usersController = require('./controllers/usersController'); // user controller for user routes
 const PORT = process.env.PORT || 4000; // set port
-const logger = require(`./middleware/logger`);
-const { db } = require('./models/User');
 app.set('view engine', 'ejs'); // set a view engine, ejs to display and render
 
 app.use(express.static(__dirname + '/public')); // for css and images
@@ -36,26 +34,11 @@ app.use((req, res, next) => {
 
 // Custom Middleware
 // Sets Title Dynamically
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-
->>>>>>> 27cee2627ff01fcd5993e745cac2128cd89134ae
 app.use((req, res, next) => {
   app.locals.title = req.url.replace('/', '| '); // Sets title to url replacing / with |
   next();
 });
-<<<<<<< HEAD
-=======
-/* app.use((req, res, next) => {
-	app.locals.title = req.url.replace('/', '| '); // Sets title to url replacing / with |
-	next();
-}); */
->>>>>>> 894b9224c3bb1734e75fb2ec060ca488946ce848
-app.use((req, res, next) => logger(req, res, next));
-=======
 
->>>>>>> 27cee2627ff01fcd5993e745cac2128cd89134ae
 // Routes
 // Index Route
 app.get('/', (req, res) => {
@@ -65,7 +48,6 @@ app.use(`/products`, productsController);
 app.use('/users', usersController);
 
 app.get(`*`, (req, res) => {
-  console.log('App', app.locals);
   res.render(`404`, {
     req: req.url,
   });

@@ -41,6 +41,7 @@ app.use((req, res, next) => {
 
 // Routes
 // Index Route
+
 app.get('/', (req, res) => {
   res.render('index');
 });

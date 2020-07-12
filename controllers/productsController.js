@@ -1,11 +1,12 @@
 // current path: /products
-const router = require("./usersController");
-const express = require(`express`); // require express library
-const db = require(`../models`);
-const router = express.Router() // create a const router that uses express Router function
-const products = require('../models/productsController.js'); // import the products model
+
+// show
+
+const express = require('express');
+const router = express.Router();
+const db = require('../models');
 const methodOverride = require(`method-override`);
-const { productsArray } = require("../models/Products");
+
 
 // CURRENT PATH: /products
 
@@ -58,12 +59,15 @@ router.get('/:id', function (req, res) {
 
 // ---------------------------------- SHOW ALL PRODUCTS  ---------------------------------------------//
 // route to show all products using render
-router.get(`/`, (req, res) => {
-    res.render(`index`, {
-        products: products
+// Shows All Users
+router.get('/', (req, res) => {
+  db.Products.find({}, (err, foundProducts) => {
+    if (err) console.log(err);
+    res.render('products/index', {
+      products: foundProducts,
     });
-})
-
+  });
+});
 //edit route and update routes, when using edit, its the same route as delete :index or :id so can be tricky
 /* PATCH or PUT are two different methods, we can use either one, patch uses one piece, put updates everything and also says if this record exists i wanna update it, if it doesnt, i want to create it. PUT is safer to use than patch when updating/editing */
 
@@ -108,14 +112,6 @@ router.delete('/:id', (req, res) => {
     })
 });
 
-// Shows All Users
-router.get('/', (req, res) => {
-    db.Products.find({}, (err, foundProducts) => {
-        if (err) console.log(err);
-        res.render('products/index', {
-            users: foundProducts,
-        });
-    });
-});
+
 
 module.exports = router;

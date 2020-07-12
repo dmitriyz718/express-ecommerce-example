@@ -12,6 +12,7 @@ const productSchema = new mongoose.Schema({
   category: Array,
 });
 
+<<<<<<< HEAD
 const productsArray = [
 <<<<<<< HEAD
   {
@@ -274,8 +275,8 @@ const productsArray = [
     },
 ]
 >>>>>>> 894b9224c3bb1734e75fb2ec060ca488946ce848
+=======
+>>>>>>> 27cee2627ff01fcd5993e745cac2128cd89134ae
 const Products = new mongoose.model(`Products`, productSchema);
-module.exports = {
-  Products,
-  productsArray,
-};
+
+module.exports = Products;

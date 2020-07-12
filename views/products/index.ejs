@@ -1,21 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
-  <%- include('../partials/_head') %>
+<%- include('../partials/_head') %>
 
-  <body>
-    <%- include('../partials/_header') %>
-    <div class="products-container">
-      <% for(let product of products){ %>
-      <!--  -->
-      <div class="product">
-        <img src="<%= product.img %>" alt="" />
-        <section>
-          <p><%= product.name %></p>
-          <p>$<%= product.price %></p>
-        </section>
-      </div>
-      <!--  -->
-      <% } %>
+<body>
+  <%- include('../partials/_header') %>
+  <div class="products-container">
+    <% for(let product of products){ %>
+    <!--  -->
+    <div class="product">
+      <img src="<%= product.img %>" alt="" />
+      <section>
+        <p><%= product.name %></p>
+        <p>$<%= product.price %></p>
+      </section>
     </div>
-  </body>
+    <!--  -->
+    <% } %>
+  </div>
+</body>
+
 </html>

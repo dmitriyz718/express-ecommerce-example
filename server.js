@@ -36,6 +36,7 @@ app.use((req, res, next) => {
 
 // Custom Middleware
 // Sets Title Dynamically
+
 app.use((req, res, next) => {
   app.locals.title = req.url.replace('/', '| '); // Sets title to url replacing / with |
   next();

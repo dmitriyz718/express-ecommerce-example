@@ -9,16 +9,29 @@
 
 body {
   background: hsla(0, 0%, 6%, 1);
-  background: linear-gradient( 45deg, hsla(0, 0%, 6%, 1) 0%, hsla(0, 0%, 27%, 1) 100%);
-  background: -moz-linear-gradient( 45deg, hsla(0, 0%, 6%, 1) 0%, hsla(0, 0%, 27%, 1) 100%);
-  background: -webkit-linear-gradient( 45deg, hsla(0, 0%, 6%, 1) 0%, hsla(0, 0%, 27%, 1) 100%);
+  background: linear-gradient(
+    45deg,
+    hsla(0, 0%, 6%, 1) 0%,
+    hsla(0, 0%, 27%, 1) 100%
+  );
+  background: -moz-linear-gradient(
+    45deg,
+    hsla(0, 0%, 6%, 1) 0%,
+    hsla(0, 0%, 27%, 1) 100%
+  );
+  background: -webkit-linear-gradient(
+    45deg,
+    hsla(0, 0%, 6%, 1) 0%,
+    hsla(0, 0%, 27%, 1) 100%
+  );
   filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#101010', endColorstr='#444444', GradientType=1);
   min-height: 100vh;
   -webkit-filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#101010", endColorstr="#444444", GradientType=1);
   color: #f1f1f1;
 }
 
-a, a:visited {
+a,
+a:visited {
   color: #f1f1f1;
 }
 
@@ -61,31 +74,4 @@ nav ul li a:hover {
   width: 150px;
   display: flex;
   justify-content: space-between;
-}
-
-/* 404 page CSS */
-
-* {
-  box-sizing: border-box;
-}
-
-html, body {
-  width: 100%;
-  min-height: 100%;
-  background: black;
-  margin: 0;
-  display: -webkit-box;
-  display: flex;
-  -webkit-box-pack: center;
-  justify-content: center;
-  padding: 0.5em;
-  overflow: auto;
-}
-
-canvas {
-  max-width: calc(100vw - 2em);
-  max-height: calc(100vh - 2em);
-  /*   border: 1px solid white; */
-  align-self: center;
-  cursor: move;
 }

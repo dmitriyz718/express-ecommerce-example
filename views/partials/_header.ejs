@@ -3,7 +3,17 @@
     <li><a href="/">Home</a></li>
     <li><a href="/users">Users</a></li>
     <li><a href="/products">Products</a></li>
+    <%if(userId) {%>
+    <!-- If user is logged in display -->
+    <li><a href="/users/<%= userId%>">Hello, <%= username%></a></li>
+    <li>
+      <form action="/users/logout" method="POST">
+        <button type="submit">Log Out</button>
+      </form>
+    </li>
+    <%} else {%>
     <li><a href="/users/create">Sign Up</a></li>
     <li><a href="/users/signin">Sign In</a></li>
+    <% } %>
   </ul>
 </nav>

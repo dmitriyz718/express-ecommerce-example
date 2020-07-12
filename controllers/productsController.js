@@ -1,7 +1,10 @@
 // current path: /products
 // show
 
-const router = require("./usersController");
+const express = require('express');
+
+const router = express.Router();
+const db = require('../models');
 
 // create
 
@@ -12,12 +15,12 @@ const router = require("./usersController");
 // show all : `/`
 // Shows All Users
 router.get('/', (req, res) => {
-    db.Products.find({}, (err, foundProducts) => {
-        if (err) console.log(err);
-        res.render('products/index', {
-            users: foundProducts,
-        });
+  db.Products.find({}, (err, foundProducts) => {
+    if (err) console.log(err);
+    res.render('products/index', {
+      products: foundProducts,
     });
+  });
 });
 
 module.exports = router;

@@ -1,6 +1,5 @@
 // current path: /products
 const router = require("./usersController");
-
 const express = require(`express`); // require express library
 const db = require(`../models`);
 const router = express.Router() // create a const router that uses express Router function
